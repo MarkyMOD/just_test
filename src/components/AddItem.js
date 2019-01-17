@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class AddItem extends Component {
   state = {
-    quantity: 0,
+    quantity: 1,
     productId: 40
   }
 
@@ -16,7 +16,7 @@ class AddItem extends Component {
       <form className="container" onSubmit={this.onSubmit}>
         <div className="form-group">
           <label htmlFor="quantity">Quantity</label>
-          <input type="number" className="form-control" id="quantity" value={this.state.quantity} onChange={(e)=> this.setState({quantity: Math.abs(e.target.value)})}/>
+          <input type="number" className="form-control" id="quantity" value={this.state.quantity} min= "1" onChange={(e)=> this.setState({quantity: e.target.value})}/>
 
           <label htmlFor="product">Product</label>
           <select id="product" className="form-control" value={this.state.productId} onChange={(e) => this.setState({productId: e.target.value})}>
